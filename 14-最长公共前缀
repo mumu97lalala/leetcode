@@ -1,0 +1,15 @@
+var longestCommonPrefix = function (strs) {
+    let sortStrs = strs.sort();
+    let firstStr = sortStrs[0];
+    let lastStr = sortStrs[strs.length - 1];
+    let minLength = Math.min(firstStr.length, lastStr.length);
+    let count = 0;
+    for (let i = 0; i < minLength; i++) {
+        if (firstStr[i] !== lastStr[i]) {
+            break;
+        } else {
+            count++;
+        }
+    }
+    return firstStr.slice(0, count);
+};
