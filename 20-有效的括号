@@ -1,0 +1,32 @@
+var isValid = function (s) {
+    const res = [];
+    let arrayS = s.split('');
+    let popStr;
+    for (let i = 0; i < arrayS.length; i++) {
+        if (arrayS[i] === '(' || arrayS[i] === '[' || arrayS[i] === '{') {
+            res.push(arrayS[i]);
+        }
+        if (arrayS[i] === ')') {
+            popStr = res.pop();
+            if (popStr !== '(') {
+                return false;
+            }
+        }
+        if (arrayS[i] === ']') {
+            popStr = res.pop();
+            if (popStr !== '[') {
+                return false;
+            }
+        }
+        if (arrayS[i] === '}') {
+            popStr = res.pop();
+            if (popStr !== '{') {
+                return false;
+            }
+        }
+    }
+    if (res.length !== 0) {
+        return false;
+    }
+    return true;
+};
