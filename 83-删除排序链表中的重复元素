@@ -1,0 +1,23 @@
+struct ListNode *deleteDuplicates(struct ListNode *head)
+{
+    if (!head || head->next == NULL)
+    {
+        return head;
+    }
+    struct ListNode *p = head;
+    struct ListNode *r = p->next;
+    while (r != NULL)
+    {
+        if (p->val == r->val)
+        {
+            p->next = r->next;
+            r = r->next;
+        }
+        else
+        {
+            r = r->next;
+            p = p->next;
+        }
+    }
+    return head;
+}
