@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdbool.h>
+struct ListNode
+{
+    int val;
+    struct ListNode *next;
+};
+bool hasCycle(struct ListNode *head)
+{
+    if (!head)
+    {
+        return false;
+    }
+    struct ListNode *first = head;
+    struct ListNode *last = head;
+    while (first != NULL && first->next != NULL)
+    {
+        first = first->next->next;
+        last = last->next;
+        if (first == last)
+        {
+            return true;
+        }
+    }
+    return false;
+}
