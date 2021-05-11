@@ -1,0 +1,31 @@
+#include <stdio.h>
+struct ListNode
+{
+    int val;
+    struct ListNode *next;
+};
+
+struct ListNode *reverseList(struct ListNode *head)
+{
+    if (!head || head->next == NULL)
+    {
+        return NULL;
+    }
+    struct ListNode *r = head;
+    struct ListNode *p = head->next;
+    struct ListNode *t = p->next;
+    while (p != NULL)
+    {
+        p->next = r;
+        r = p;
+        p = t;
+        if (t == NULL)
+        {
+            break;
+        }
+        t = t->next;
+    }
+    head->next = NULL;
+
+    return r;
+}
