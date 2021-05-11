@@ -1,0 +1,45 @@
+#include <stdio.h>
+struct ListNode
+{
+    int val;
+    struct ListNode *next;
+};
+
+struct ListNode *removeElements(struct ListNode *head, int val)
+{
+    if (!head)
+    {
+        return NULL;
+    }
+    while (head != NULL)
+    {
+        if (head->val == val)
+        {
+            head = head->next;
+        }
+        else
+        {
+            break;
+        }
+    }
+    if (head == NULL)
+    {
+        return NULL;
+    }
+
+    struct ListNode *p = head->next, *r = head;
+    while (p != NULL)
+    {
+        if (p->val == val)
+        {
+            p = p->next;
+            r->next = p;
+        }
+        else
+        {
+            r = r->next;
+            p = p->next;
+        }
+    }
+    return head;
+}
