@@ -1,12 +1,24 @@
-var climbStairs = function(n) {
-    const f = [];
-    f[1] = 1;
-    f[2] = 2;
-    if( n === 1  || n === 2) {
-        return n;
+var mySqrt = function(x) {
+    for(let i = 0; i <= x; i++){
+        if( i * i === x) {
+            return i;
+        } else if ( i * i > x) {
+            return i - 1;
+        }
     }
-    for(let i = 3; i <= n; i++) {
-        f[i] = f[i-1]+ f[i-2];
+};
+
+
+var mySqrt = function(x) {
+    let low = 0;
+    let high = x;
+    while(low <= high) {
+        let mid = Math.floor((low + high) / 2);
+        if(mid * mid > x) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
     }
-    return f[n];
+    return high;
 };
