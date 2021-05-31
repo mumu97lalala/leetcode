@@ -1,0 +1,13 @@
+ var inorderTraversal = function(root, array=[]) {
+     if(!root) return [];
+     if(root) {
+        if(root.left) {
+            inorderTraversal(root.left, array);
+         }
+         array.push(root.val);
+         if(root.right) {
+            inorderTraversal(root.right, array);
+        }
+     }
+    return array;
+};
