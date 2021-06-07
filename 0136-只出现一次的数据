@@ -1,0 +1,12 @@
+var singleNumber = function(nums) {
+    //  1
+    const sortNums = nums.sort();
+    for(let i =  0; i < sortNums.length; i++) {
+        if(sortNums[i] !== sortNums[i-1] && sortNums[i] !== sortNums[i+1]){
+            return sortNums[i];
+        }
+    }
+    
+    //  2
+    return nums.reduce((pre,cur) => pre ^ cur);
+};
