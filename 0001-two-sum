@@ -25,6 +25,11 @@ var twoSum = function (nums, target) {
 
 
 // 更优解
+
+// 新建一个map(key为数值的值，value为数组下标），map里面放的是之前已经比较过的数字,nums[i]是当前的值，target-nums[i]得到的值，
+// 如果在之前的数字有出现，则说明能够查找到。注意map里面放的是下标比i小的值，所以map[target-nums[i]]是返回数组的第一项。
+
+
 function twoSum1(nums, target) {
     let map = {}
     for(let i = 0; i < nums.length; ++i) {
