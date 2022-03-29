@@ -1,3 +1,4 @@
+// 第一种
 var removeDuplicates = function (nums) {
     let length = nums.length;
     for (let i = 0; i < length; i++) {
@@ -7,4 +8,35 @@ var removeDuplicates = function (nums) {
     }
     nums.splice(0, length);
     return nums.length;
+};
+
+// 第二种
+ var removeDuplicates = function(nums) {
+    for(let i = 0; i < nums.length - 1;) {
+        if(nums[i] === nums[i + 1]) {
+            nums.splice(i, 1);
+        } else {
+            i++
+        }
+     }
+    return nums.length
+};
+
+// 第三种 双指针
+var removeDuplicates = function(nums) {
+    if(nums.length === 0) {
+        return;
+    }
+    let slow = 0;
+    let fast = 1;
+    let n = nums.length;
+    while(fast < n) {
+        if(nums[slow] !== nums[fast]) {
+            nums[slow + 1] = nums[fast];
+            slow++;
+        } else {
+            fast++;
+        }
+    }
+    return slow + 1
 };
