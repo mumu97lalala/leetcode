@@ -1,0 +1,55 @@
+// 一
+var plusOne = function (digits) {
+    for (let i = digits.length - 1; i >= 0; i--) {
+        digits[i]++;
+        digits[i] = digits[i] % 10;
+        if (digits[i] !== 0) {
+            return digits;
+        }
+    }
+    digits.unshift(1);
+    return digits;
+};
+// 二
+ var plusOne = function(digits) {
+   const n = digits.length;
+   for(let i = n - 1; i >= 0;) {
+     if(digits[i] === 9) {
+       digits[i] = 0;
+       digits[i - 1 ] = digits[i - 1] + 1;
+       let j = i - 1;
+       while(digits[j] === 10) {
+         digits[j] = 0;
+         digits[j - 1] = digits[j - 1] + 1;
+         j--;
+         i = j;
+         if(j < 0) {
+           break;
+         }
+       }
+       console.log(i);
+       if((i === 0 || i === -1) && digits[0] === 0) {
+         digits.unshift(1);
+       }
+       break;
+     }
+     else {
+       digits[i] = digits[i] + 1;
+       break;
+     }
+   }
+   return digits;
+ };
+ 
+ // 三
+  var plusOne = function (digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+      if (digits[i] !== 9) {
+          digits[i]++;
+          return digits;
+      } else {
+          digits[i] = 0;
+      }
+  }
+  return [1, ...digits];
+}
